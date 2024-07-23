@@ -10,6 +10,11 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Neovim configuration manager.
+    nixneovim.url = "github:nixneovim/nixneovim";
+    nixneovim.inputs.home-manager.follows = "home-manager";
+    nixneovim.inputs.nixpkgs.follows = "nixpkgs";
+
     # Library that provides backwards compatibility with the old `nix-shell` interface.
     flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
     # Library that ties everything together.
@@ -33,6 +38,12 @@
 
     overlays = with inputs; [
       flake.overlays.default
+      nixneovim.overlays.default
+    ];
+
+    # Modules added to all home-manager configurations.
+    homes.modules = with inputs; [
+      nixneovim.nixosModules.homeManager
     ];
 
     snowfall = {
