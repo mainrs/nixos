@@ -1,4 +1,4 @@
-{ config, lib, namespace, pkgs, system, ...}:
+{ config, lib, namespace, pkgs, ...}:
 
 let 
   inherit (lib) mkOption mkIf types;
@@ -10,7 +10,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nix.package = pkgs.lix; # FIXME: doesn't do anything right now...
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix = {
+      enable = true;
+      package = pkgs.lix;
+      settings.experimental-features = [ "nix-command" "flakes" ];
+    };
   };
 }
