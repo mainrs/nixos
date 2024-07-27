@@ -13,6 +13,7 @@ let
 in {
   zt = {
     cli-apps = {
+      bat = enabled;
       home-manager = enabled;
       flake = enabled;
       nix = enabled;
