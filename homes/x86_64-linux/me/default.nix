@@ -18,6 +18,10 @@ in {
       nix = enabled;
       zsh = enabled;
     };
+
+    gui = {
+      alacritty = enabled;
+    };
   };
 
   # Overwrite some packages to ensure that the CachyOS version is installed.
