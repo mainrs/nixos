@@ -15,6 +15,9 @@
     nixneovim.inputs.home-manager.follows = "home-manager";
     nixneovim.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Module that enables catppuccin for all supported programs at once.
+    catppuccin.url = "github:catppuccin/nix";
+
     # Library that provides backwards compatibility with the old `nix-shell` interface.
     flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
     # Library that ties everything together.
@@ -43,6 +46,7 @@
 
     # Modules added to all home-manager configurations.
     homes.modules = with inputs; [
+      catppuccin.homeManagerModules.catppuccin
       nixneovim.nixosModules.homeManager
     ];
 
