@@ -75,5 +75,7 @@ in {
         };
       };
     };
+
+    ${namespace}.blacklist = [ pkgs.zsh ];
   };
 }
