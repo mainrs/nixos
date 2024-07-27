@@ -9,6 +9,7 @@ with lib.zt;
     cli-apps = {
       neovim = enabled;
     };
+    theme.catppuccin = enabled;
   };
 
   # `kyoto` is a CachyOS-based system, so we want to optimize the binaries for the platform.
