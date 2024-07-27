@@ -40,6 +40,7 @@ in {
           "eza"
           "fd"
           "fzf"
+          "zoxide"
         ] ++ lib.optional cfg-dev.enable [
           # General development plugins.
           "bazel"
