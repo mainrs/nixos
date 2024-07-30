@@ -11,7 +11,9 @@ let
 in {
   options.${namespace}.cli-apps.zsh = {
     enable = mkEnableOption "Enable the zsh module.";
-    enableDefaultOhMyZshPlugins = mkEnableOption "Enable default Oh-my-zsh plugins, enhancing the shell experience.";
+    enableDefaultOhMyZshPlugins = mkEnableOption "Enable default oh-my-zsh plugins, enhancing the shell experience." // {
+      default = true;
+    };
   };
 
   config = mkIf cfg.enable {   
